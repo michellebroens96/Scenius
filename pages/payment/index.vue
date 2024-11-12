@@ -22,6 +22,7 @@
     <div class="flex items-center justify-center">
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 w-1/4"
+        @click="handlePayment(input)"
       >
         <NuxtLink to="/payment/transaction">
           <span class="flex items-center justify-center gap-1">
@@ -39,14 +40,16 @@ import { ref } from "vue";
 import Typography from "@/components/partials/Typography.vue";
 import Section from "@/components/layout/Section.vue";
 
+const paymentStore = ref(usePaymentStore());
+const input = ref(paymentStore.value.amountToBePaid);
+
 const props = defineProps({
   buttons: {
     type: Array,
-    required: true,
+    required: false,
   },
 });
 
-const input = ref("0,00");
 const buttons = [
   { label: "1" },
   { label: "2" },
@@ -57,17 +60,21 @@ const buttons = [
   { label: "7" },
   { label: "8" },
   { label: "9" },
-  { label: "Delete", icon: "material-symbols:backspace-outline-rounded" },
+  { label: "", icon: "material-symbols:backspace-outline-rounded" },
   { label: "0" },
   { label: "00" },
 ];
 
 const handleButtonClick = (label: string) => {
   console.log(label);
-  if (label === "Delete") {
+  if (label === "") {
     input.value = input.value.toString().slice(0, -1);
   } else {
     input.value = input.value.toString() + label;
   }
+};
+
+const handlePayment = (amount: number) => {
+  paymentStore.value.amountToBePaid = amount;
 };
 </script>
