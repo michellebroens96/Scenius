@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const sizes = {
   heading: {
-    xxl: "text-[40px] md:text-[80px] lg:text-[110px] leading-none",
+    xxl: "text-[40px] md:text-[80px] lg:text-[120px] leading-none",
     xl: "text-[32px] md:text-[72px] lg:text-[80px]",
     lg: "text-[32px] md:text-[48px] lg:text-[72px] leading-tight",
     md: "text-[24px] md:text-[36px] lg:text-[48px] leading-tight font-semibold",

@@ -10,4 +10,9 @@
     </template>
   </button>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{
+  label: string;
+  icon?: string;
+}>();
+</script>

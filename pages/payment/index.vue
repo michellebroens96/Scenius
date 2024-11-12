@@ -1,30 +1,43 @@
 <template>
-  <div>
-    <p class="text-gray-400">Enter amount</p>
-  </div>
-  <div><Icon name="material-symbols:euro" /> {{ input }}</div>
-  <div class="flex col-span-3" v-for="button in buttons" :key="button.label">
-    <NumericButton
-      class="text-black"
-      :label="button.label.toString()"
-      :icon="button.icon"
-      @click="handleButtonClick(button.label)"
-    />
-  </div>
-  <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-  >
-    <NuxtLink to="/payment/transaction">
-      <span class="flex items-center justify-center gap-1">
-        <Icon name="material-symbols:credit-card-outline" />
-        <p>Pay now</p>
-      </span>
-    </NuxtLink>
-  </button>
+  <Section>
+    <div class="flex items-center justify-center">
+      <p class="text-gray-400">Enter the amount</p>
+    </div>
+    <span class="flex flex-row items-center justify-center gap-1">
+      <Icon name="material-symbols:euro" class="text-2xl" />
+      <Typography type="heading" size="xxl">{{ input }}</Typography>
+    </span>
+    <div class="flex items-center justify-center">
+      <div class="grid grid-cols-3">
+        <div v-for="button in buttons" :key="button.label">
+          <NumericButton
+            class="text-black"
+            :label="button.label"
+            :icon="button.icon"
+            @click="handleButtonClick(button.label)"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 w-1/4"
+      >
+        <NuxtLink to="/payment/transaction">
+          <span class="flex items-center justify-center gap-1">
+            <Icon name="material-symbols:credit-card-outline" />
+            <p>Pay now</p>
+          </span>
+        </NuxtLink>
+      </button>
+    </div>
+  </Section>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import Typography from "@/components/partials/Typography.vue";
+import Section from "@/components/layout/Section.vue";
 
 const props = defineProps({
   buttons: {
@@ -33,7 +46,7 @@ const props = defineProps({
   },
 });
 
-const input = ref("0");
+const input = ref("0,00");
 const buttons = [
   { label: "1" },
   { label: "2" },
@@ -44,9 +57,9 @@ const buttons = [
   { label: "7" },
   { label: "8" },
   { label: "9" },
+  { label: "Delete", icon: "material-symbols:backspace-outline-rounded" },
   { label: "0" },
-  { label: ",00" },
-  { label: "Delete", icon: "material-symbols:delete-outline" },
+  { label: "00" },
 ];
 
 const handleButtonClick = (label: string) => {
