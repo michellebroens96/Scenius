@@ -7,14 +7,26 @@
       <Icon name="material-symbols:euro" class="text-2xl" />
       <Typography type="heading" size="xxl">{{ input }}</Typography>
     </span>
-    <!-- TODO:add img -->
+    <div class="flex items-center justify-center">
+      <Icon class="text-[240px]" name="simple-icons:contactlesspayment" />
+    </div>
     <div class="flex items-center justify-center gap-2">
-      <button class="hover:bg-gray-300 rounded p-1">
-        <Icon class="w-14 h-14" name="logos:visaelectron" />
-      </button>
-      <button class="hover:bg-gray-300 rounded p-1">
-        <Icon class="w-14 h-14" name="logos:mastercard" />
-      </button>
+      <NuxtLink to="/payment/completed">
+        <button
+          class="hover:bg-gray-300 rounded p-1"
+          @click="setPaymentMethod('Visa')"
+        >
+          <Icon class="w-14 h-14" name="logos:visaelectron" />
+        </button>
+      </NuxtLink>
+      <NuxtLink to="/payment/completed">
+        <button
+          class="hover:bg-gray-300 rounded p-1"
+          @click="setPaymentMethod('MasterCard')"
+        >
+          <Icon class="w-14 h-14" name="logos:mastercard" />
+        </button>
+      </NuxtLink>
     </div>
     <div class="flex items-center justify-center">
       <button
@@ -27,7 +39,17 @@
     </div>
   </Section>
 </template>
+
 <script setup lang="ts">
-const paymentStore = ref(usePaymentStore());
-const input = ref(paymentStore.value.amountToBePaid);
+import { usePaymentStore } from "@/stores/paymentStore"; // Ensure this is correct
+import { ref } from "vue";
+
+const paymentStore = usePaymentStore();
+const input = ref(paymentStore.amountToBePaid);
+
+const setPaymentMethod = (method: string) => {
+  paymentStore.paymentMethod = method;
+  const amount = parseFloat(input.value.replace(",", "."));
+  paymentStore.addPayment(amount, method);
+};
 </script>

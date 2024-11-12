@@ -66,7 +66,6 @@ const buttons = [
 ];
 
 const handleButtonClick = (label: string) => {
-  console.log(label);
   if (label === "") {
     input.value = input.value.toString().slice(0, -1);
   } else {

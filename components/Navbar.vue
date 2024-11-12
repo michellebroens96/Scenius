@@ -1,8 +1,6 @@
 <template>
   <div class="flex items-center justify-between p-5 border-b z-10">
-    <div class="flex items-center space-x-3">
-      <NuxtImg :src="image1" quality="30" />
-    </div>
+    <div class="flex items-center space-x-3">Scenius</div>
     <nav>
       <ul class="flex space-x-8">
         <li>

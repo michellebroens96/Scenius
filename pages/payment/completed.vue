@@ -7,7 +7,9 @@
       <Icon name="material-symbols:euro" class="text-2xl" />
       <Typography type="heading" size="xxl">{{ input }}</Typography>
     </span>
-    <!-- TODO:add img -->
+    <div class="flex items-center justify-center">
+      <Icon class="text-[240px] text-green-500" name="stash:check-circle" />
+    </div>
     <div class="flex items-center justify-center">
       <button
         class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded mt-4 w-1/4"
