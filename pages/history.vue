@@ -23,8 +23,6 @@
   </Section>
 </template>
 <script setup lang="ts">
-import Section from "@/components/layout/Section.vue";
-
 const paymentStore = usePaymentStore();
 const history = ref(paymentStore.payments);
 

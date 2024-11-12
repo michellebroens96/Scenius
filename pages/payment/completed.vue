@@ -23,7 +23,7 @@
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 w-1/4"
       >
-        <NuxtLink to="/payment">
+        <NuxtLink to="/">
           <p>Start new</p>
         </NuxtLink>
       </button>
