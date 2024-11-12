@@ -6,6 +6,8 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/tailwindcss",
+    "@nuxt/icon",
+    "@nuxt/image",
   ],
 
   postcss: {
@@ -13,6 +15,4 @@ export default defineNuxtConfig({
       tailwindcss: {},
     },
   },
-
-  compatibilityDate: "2024-08-16",
 });

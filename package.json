@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "^1.7.2",
+    "@nuxt/image": "^1.8.1",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
     "@pinia/nuxt": "^0.5.3",
     "flowbite": "^2.5.1",
@@ -20,6 +22,7 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@iconify-json/material-symbols": "^1.2.6",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
